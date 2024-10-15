@@ -1,0 +1,243 @@
+
+.main{
+    width: 85%;
+    height: auto;
+
+    margin: 0 auto;
+}
+.banner {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các banner */
+    margin-top: 10px; /* Khoảng cách phía trên */
+    height: auto;
+}
+
+.banner .big_banner {
+    flex: 3;
+    height: 450px; /* Điều chỉnh chiều cao để khớp với tổng chiều cao của sub banner */
+    border-radius: 10px; /* Bo góc */
+    overflow: hidden;
+}
+
+.sub_banner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các sub banner */
+    height: 100%;
+}
+
+.sub_banner1,
+.sub_banner2,
+.sub_banner3 {
+    flex: 1;
+    height: 140px; /* Chiều cao từng sub banner */
+    border-radius: 10px; /* Bo góc */
+    overflow: hidden;
+}
+
+.main_sale_background{
+    background: linear-gradient(rgb(248, 62, 96), rgb(254, 80, 72)) 0% 0% / cover;
+    border-radius: 15px;
+}
+.main_sale_product_title{
+    margin-top: 20px;
+    padding: 0;
+    width: 100%;
+    border-radius: 15px;
+}
+.main_sale_product_title div.main_img_sale_product{
+    width: 60%;
+    height: 100%;
+    margin-left: 20px;
+}
+.main_sale_product{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.main_sale_product div.sale_product{
+    width: 23%;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+.sale_product div.sale_value{
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: red;
+}
+.sale_product div.sale_value span{
+    color: white;
+}
+.sale_product_img{
+    width: 90%;
+    margin: 0 auto;
+}
+.sale_product_name{
+    width: 90%;
+    margin: 5px 10px 5px 10px;
+}
+.sale_product_name span{
+    color: rgb(83, 83, 83);
+    font-size: 20px;
+    font-weight: 800;
+}
+.sale_product_price{
+    width: 90%;
+    margin: 5px 10px 20px 10px;
+}
+.sale_product_price span{
+    color: red;
+    font: 16px;
+    font-weight: 500;
+}
+.sale_product_buy_b{
+    width: 80%;
+    margin: 0 auto;
+}
+.sale_product_buy_b input{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(244, 46, 79);
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+}
+.sale_product_buy_b input:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+/* dien thoai noi bat*/
+.outstandingPhone{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.outstandingPhone div.outstandingPhone__head_content{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+.outstandingPhone__head_content span{
+    font-size: 30px;
+    font-weight: 800;
+}
+.outstandingPhone__phone_container{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.outstandingPhone__phone_container__phone{
+    width: 23%;
+    margin: 10px 15px 10px 10px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+    box-sizing: border-box;
+}
+.outstandingPhone__phone_container__phone a{
+    text-decoration: none;
+}
+.outstandingPhone__phone_container__phone__phone_content{
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: red;
+}
+.outstandingPhone__phone_container__phone__phone_content span{
+    color: white;
+}
+.outstandingPhone__phone_container__phone__phone_image{
+    width: 90%;
+    margin: 0 auto;
+}
+.outstandingPhone__phone_container__phone__phone_name{
+    width: 90%;
+    margin: 5px 10px 5px 10px;
+}
+.outstandingPhone__phone_container__phone__phone_name span{
+    color: rgb(83, 83, 83);
+    font-size: 20px;
+    font-weight: 800;
+}
+.outstandingPhone__phone_container__phone__phone_price{
+    width: 90%;
+    margin: 5px 10px 20px 10px;
+}
+.outstandingPhone__phone_container__phone__phone_price span{
+    color: red;
+    font: 16px;
+    font-weight: 500;
+}
+/* may tinh bang noi bat*/
+.outstandingTablet{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.outstandingTablet__tablet_container__tablet a{
+    text-decoration: none;
+}
+.outstandingTablet div.outstandingTablet__head_content{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+.outstandingTablet__head_content span{
+    font-size: 30px;
+    font-weight: 800;
+}
+.outstandingTablet__tablet_container{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.outstandingTablet__tablet_container__tablet{
+    width: 23%;
+    margin: 10px 15px 10px 10px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+    box-sizing: border-box;
+}
+.outstandingTablet__tablet_container__tablet__tablet_content{
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: red;
+}
+.outstandingTablet__tablet_container__tablet__tablet_content span{
+    color: white;
+}
+.outstandingTablet__tablet_container__tablet__tablet_image{
+    width: 90%;
+    margin: 0 auto;
+}
+.outstandingTablet__tablet_container__tablet__tablet_name{
+    width: 90%;
+    margin: 5px 10px 5px 10px;
+}
+.outstandingTablet__tablet_container__tablet__tablet_name span{
+    color: rgb(83, 83, 83);
+    font-size: 20px;
+    font-weight: 800;
+}
+.outstandingTablet__tablet_container__tablet__tablet_price{
+    width: 90%;
+    margin: 5px 10px 20px 10px;
+}
+.outstandingTablet__tablet_container__tablet__tablet_price span{
+    color: red;
+    font: 16px;
+    font-weight: 500;
+}

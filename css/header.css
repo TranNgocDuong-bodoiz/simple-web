@@ -1,0 +1,200 @@
+
+/*header*/
+
+.page_header{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color:red;
+    top: 0;
+    left: 0;
+}
+div.page_header div{
+    margin-top: 10px;
+}
+/* logo*/
+div.page_header div.logo{
+    padding: 0;
+    margin: 0;
+}
+div.logo div.shop_name span{
+    font-weight: 900;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
+div.logo div.shop_content{
+    font-weight: 300;
+    font-size: 16px;
+    color: rgb(247, 247, 247);
+}
+/* danh muc css */
+.danh_muc_container{
+    background-color: rgb(246, 120, 120);
+    width: 85px;
+    height: 40px;
+    border-radius: 15px; 
+    position: relative;
+}
+.danh_muc{
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.danh_muc span{
+    font-size: 14px;
+    color: white;
+}
+
+.danh_muc_container ul.danh_muc_list{
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    min-width: 200px;
+    z-index: 1000;
+    
+}
+.danh_muc_list li.danh_muc_item{
+    text-decoration: none;
+    padding: 10px 5px 0px;
+    border-bottom: 1px solid gray; 
+    background-color: rgb(255, 255, 255);
+}
+.danh_muc_list li.danh_muc_item a{
+    text-decoration: none;
+    color: black;
+}
+.danh_muc_list li.danh_muc_item a:hover{
+    text-decoration: none;
+    color: red;
+}
+.danh_muc_list li.gap_item{
+    text-decoration: none;
+    padding: 3px 5px 2px;
+    background-color: rgba(255, 255, 255, 0);
+}
+.danh_muc_container:hover ul.danh_muc_list{
+    display: block;
+}
+li.danh_muc_item:hover{
+    background-color: gray;
+}
+/* search bar  height 40px*/
+.page_header div.search_bar{
+    display: flex;
+    height: 40px;
+    width: 300px;
+}
+.search_bar button{
+    width: 15%;
+    background-color:rgb(242, 48, 48);
+}
+.search_bar input{
+    width: 85%;
+}
+/* hotline */
+/* Hotline */
+/* Hotline */
+.page_header div.hotline {
+
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.hotline a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.hotline a div.hotline_icon {
+    font-size: 18px;
+    color: black;
+}
+
+.hotline_infor {
+    padding-left: 5px;
+}
+
+.hotline_infor span {
+    display: block;
+    font-size: 12px;
+    color: white;
+}
+
+.hotline:hover {
+    background-color : rgb(246, 120, 120);
+    cursor: pointer;
+}
+
+
+/*  "tra_cuu_don_hang" */
+/*  " gio hang" */
+/* Giỏ hàng */
+/* Giỏ hàng */
+.page_header div.gio_hang {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.gio_hang a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.gio_hang a div.gio_hang_icon {
+    font-size: 18px;
+    color: black;
+}
+
+.gio_hang_infor {
+    padding-left: 5px;
+}
+
+.gio_hang_infor span {
+    display: block;
+    font-size: 12px;
+    color: white;
+}
+
+.gio_hang:hover {
+    background-color: rgb(246, 120, 120);
+    cursor: pointer;
+}
+
+.page_header .tai_khoan{
+    background-color: rgb(246, 120, 120);
+    width: 85px;
+    height: 40px;
+    border-radius: 15px; 
+}
+.page_header .tai_khoan a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.tai_khoan_ct{
+    padding-left: 2px;
+}
+.tai_khoan_ct span{
+    color: white;
+}
