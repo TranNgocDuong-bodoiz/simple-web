@@ -1,0 +1,27 @@
+.wraper{
+    display: flex;
+    max-width: 1500px;
+    min-width: 1200px;
+    min-height: 700px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    justify-content: space-between;
+}
+.menu{
+    width: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+.main{
+    padding-left: 210px;
+}

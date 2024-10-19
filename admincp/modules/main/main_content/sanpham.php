@@ -2,10 +2,10 @@
 <div class="product_management">
     <div class="add_product">
         <form action="" method="POST">
-            <input type="text" placeholder="Tên sản phẩm"> <br>
-            <input type="file" placeholder="Ảnh sản phẩm" accept="image/*"> <br>
-            <input type="text" placeholder="Giá sản phẩm"> <br>
-            <textarea placeholder="Mô tả sản phẩm"></textarea> <br>
+            <input type="text" placeholder="Tên sản phẩm">
+            <input type="file" placeholder="Ảnh sản phẩm" accept="image/*"> 
+            <input type="text" placeholder="Giá sản phẩm"> 
+            <textarea placeholder="Mô tả sản phẩm"></textarea> 
             <button type="submit" name="add_product">Thêm sản phẩm</button> 
             
         </form>
