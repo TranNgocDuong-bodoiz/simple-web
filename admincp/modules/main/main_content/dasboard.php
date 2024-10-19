@@ -1,6 +1,6 @@
 
     <div class="dashboard-container">
-        <h1>Admin Dashboard</h1>
+        <h3>Admin Dashboard</h3>
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Total Products</h3>

@@ -1,13 +1,14 @@
 <h3>Quản lý Bài viết</h3>
 
-<div class="news-management">
-    <div class="add-news">
+<div class="management-container">
+    <div class="add_action">
         <h4>Thêm Bài viết Mới</h4>
         <form action="" method="POST">
-            <input type="text" name="title" placeholder="Tiêu đề bài viết" required>
-            <textarea name="content" placeholder="Nội dung bài viết" required></textarea>
-            <input type="text" name="author" placeholder="Tác giả">
-            <input type="date" name="publish_date" required>
+            <span>Tiêu đề bài viết</span><input type="text" name="title" placeholder="Tiêu đề bài viết" required>
+            <span>Nội dung bài viết</span><textarea name="content" placeholder="Nội dung bài viết" required></textarea>
+            <span>Tác giả</span><input type="text" name="author" placeholder="Tác giả">
+            <span>Ngày đăng</span><input type="date" name="publish_date" required>
+            <span>Danh mục</span>
             <select name="category">
                 <option value="">Chọn danh mục</option>
                 <option value="1">Tin tức</option>
@@ -18,7 +19,7 @@
         </form>
     </div>
 
-    <div class="news-list">
+    <div class="show-list">
         <h4>Danh sách Bài viết</h4>
         <table>
             <thead>
@@ -39,8 +40,8 @@
                     <td>2023-05-15</td>
                     <td>Tin tức</td>
                     <td>
-                        <a href="?edit=1">Sửa</a>
-                        <a href="?delete=1" onclick="return confirm('Bạn có chắc muốn xóa bài viết này?')">Xóa</a>
+                        <button class="edit-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
                     </td>
                 </tr>
                 <tr>
@@ -50,8 +51,8 @@
                     <td>2023-05-16</td>
                     <td>Sự kiện</td>
                     <td>
-                        <a href="?edit=2">Sửa</a>
-                        <a href="?delete=2" onclick="return confirm('Bạn có chắc muốn xóa bài viết này?')">Xóa</a>
+                        <button class="edit-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
                     </td>
                 </tr>
             </tbody>
