@@ -12,7 +12,7 @@
 }
 .menu{
     width: 200px;
-    background-color: #f0f0f0;
+    background-color: rgb(144, 113, 97);
     border: 1px solid #ccc;
     box-shadow: 0 0 10px #ccc;
     justify-content: space-between;
