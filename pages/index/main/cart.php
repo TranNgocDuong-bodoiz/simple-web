@@ -427,13 +427,13 @@ li.danh_muc_item:hover{
 .text--name{
     font-size: 30px;
 }
-.text-container-a{
+.text-container-a {
     display: flex;
 }
-.text-container-p{
+.text-container-p {
     display: flex;
 }
-.tex-container-e{
+.tex-container-e {
     display: flex;
 }
 .text--desc{
