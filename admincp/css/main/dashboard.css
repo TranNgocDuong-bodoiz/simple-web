@@ -1,0 +1,59 @@
+.dashboard-container{
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+}
+.dashborad-container h3{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+.dashboard-container .stats-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.dashboard-container .stats-grid .stat-card{
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    padding: 20px;
+    margin: 10px;
+}
+.dashboard-container .stats-grid .stat-card h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.dashboard-container .stats-grid .stat-card p{
+    font-size: 16px;
+    color: #333;
+}
+.dashboard-container .recent-activity{
+    margin-top: 20px;
+}
+.dashboard-container .recent-activity h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.dashboard-container .recent-activity .activity-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dashboard-container .recent-activity .activity-list li{
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
