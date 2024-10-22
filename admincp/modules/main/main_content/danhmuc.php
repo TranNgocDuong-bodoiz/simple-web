@@ -18,7 +18,7 @@
                     <th>Tên danh mục</th>
                     <th>stt</th>
                     <th>Thao tác</th>
-                    </tr>
+                </tr>
             </thead>
             <tbody>
                 <?php
