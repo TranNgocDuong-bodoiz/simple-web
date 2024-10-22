@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/container.css">
 </head>
 <body>
+    <?php
+    include 'config/connection.php';
+    ?>
     <div class="admin-title">   
         <h3>Welcome to admincp</h3>
     </div>

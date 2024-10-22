@@ -597,8 +597,6 @@ li.danh_muc_item:hover{
         </div>
         </div>
     </selction>
-    
-    
     <!-- footer --> 
     <div class="footer">
         <div class="footer-logo"><img src="imgaes/logo2.png" height="100%" alt=""></div>

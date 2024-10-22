@@ -1,33 +1,43 @@
-<h3>danh muc</h3>
+
+<h3>Quan ly danh muc</h3>
 <div class="management-container">
     <div class="add_action">
-        <form action="" method="POST">
-            <span>Tên danh mục</span><input type="text" placeholder="Tên danh mục">
-            <span>Mô tả danh mục</span><input type="text" placeholder="Mô tả danh mục">
+        <h4>Thêm danh mục</h4>
+        <form method="POST" action="modules/main/main_content/quanlydanhmuc/them.php">
+            <span>Tên danh mục</span><input type="text" name="tendanhmuc" placeholder="Tên danh mục">
+            <span>Mô tả danh mục</span><input type="text" name="mota" placeholder="Mô tả danh mục">
             <button type="submit" name="add_category">Thêm danh mục</button>
         </form>
     </div>
+    title
     <h4>Danh sách danh mục</h4>
     <div class="show-list">
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Tên danh mục</th>
-                    <th>Mô tả danh mục</th>
+                    <th>stt</th>
                     <th>Thao tác</th>
-                </tr>
+                    </tr>
             </thead>
             <tbody>
+                <?php
+                $sql = mysqli_query($conn, "SELECT * FROM tbl_danhmuc");
+                while($row = mysqli_fetch_assoc($sql)){
+                ?>
                 <tr>
-                    <td>1</td>
-                    <td>Danh mục 1</td>
-                    <td>Mô tả danh mục 1</td>
+                    <td> <?php echo $row['ten']?> </td>
+                    <td>  <?php echo $row['stt'] ?> </td>
                     <td>
-                        <button class="edit-btn">Sửa</button>
-                        <button class="delete-btn">Xóa</button>
+                        <button class="edit-btn">
+                            <a href="modules/main/main_content/quanlydanhmuc/sua.php?id= <?php echo $row['maDM'] ?>">Sửa</a>
+                        </button>
+                        <button class="delete-btn">
+                            <a href="modules/main/main_content/quanlydanhmuc/xoa.php?id= <?php echo $row['maDM'] ?>">Xóa</a>
+                        </button>
                     </td>
                 </tr>
+                <?php }?>
             </tbody>
         </table>
     </div>

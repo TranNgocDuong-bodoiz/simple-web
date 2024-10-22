@@ -46,4 +46,5 @@
 .show-list table tbody tr td{
     color: #000000;
     border-right: 1px solid gray;
+    min-width: 100px;
 }
