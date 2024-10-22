@@ -4,9 +4,9 @@
     <div class="add_action">
         <h4>Thêm danh mục</h4>
         <form method="POST" action="modules/main/main_content/quanlydanhmuc/them.php">
-            <span>Tên danh mục</span><input type="text" name="tendanhmuc" placeholder="Tên danh mục">
-            <span>Mô tả danh mục</span><input type="text" name="mota" placeholder="Mô tả danh mục">
-            <button type="submit" name="add_category">Thêm danh mục</button>
+            <span>Tên danh mục</span><input type="text" name="tendanhmuc" placeholder="Tên danh mục" required>
+            <span>số thứ tự</span><input type="text" name="stt" placeholder="số thứ tự" required>
+            <button type="submit" name="themdanhmuc">Thêm danh mục</button>
         </form>
     </div>
     title
