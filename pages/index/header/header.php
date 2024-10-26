@@ -16,27 +16,36 @@
             </div>
             <ul class="danh_muc_list">
                 <li class="gap_item"><i class="fa-solid fa-angle-down"></i></li>
+                <a style="text-decoration: none; color: black;" href="index.php">
                 <li class="danh_muc_item">
                     <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php">Trang chủ</a>
+                    <span>Trang chủ</span>
                 </li>
+                </a>
+                <a style="text-decoration: none; color: black;" href="index.php?quanly=dienthoai">
                 <li class="danh_muc_item">
                     <i class="fa-solid fa-mobile-screen-button"></i>
-                    <a href="index.php?quanly=dienthoai">Điện thoại</a>
+                    <span>Điện thoại</span>
                 </li>
-                
-                <li class="danh_muc_item">
-                     <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php?quanly=tablet">Tablet</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-solid fa-headphones"></i>
-                    <a href="index.php?quanly=phukien">Phụ kiện</a>
-                </li>
+                </a>
+                <a style="text-decoration: none; color: black;" href="index.php?quanly=tablet">
                 <li class="danh_muc_item">
                     <i class="fa-regular fa-newspaper"></i>
-                    <a href="index.php?quanly=tintuc">Tin tức</a>
+                    <span>Tablet</span>
                 </li>
+                </a>
+                <a style="text-decoration: none; color: black;" href="index.php?quanly=phukien">
+                <li class="danh_muc_item">
+                    <i class="fa-solid fa-headphones"></i>
+                    <span>Phụ kiện</span>
+                </li>
+                </a>
+                <a style="text-decoration: none; color: black;" href="index.php?quanly=tintuc">
+                <li class="danh_muc_item">
+                    <i class="fa-regular fa-newspaper"></i>
+                    <span>Tin tức</span>
+                </li>
+                </a>
             </ul>
         </div>
         <div class="search_bar">

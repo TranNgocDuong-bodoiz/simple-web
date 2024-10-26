@@ -1,17 +1,25 @@
+<?php
+$sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham");
+?>
 <h3>Quản lý sản phẩm</h3>
 <div class="management-container">
     <div class="add_action">
-        <form action="" method="POST">
-            <span>Tên sản phẩm</span><input type="text" placeholder="Tên sản phẩm">
-            <span>Giá sản phẩm</span><input type="text" placeholder="Giá sản phẩm">
+        <form action="modules/main/main_content/quanlysanpham/them.php" method="POST" enctype="multipart/form-data">
+            <span>Tên sản phẩm</span><input type="text" placeholder="Tên sản phẩm" name="tensanpham">
+            <span>Giá sản phẩm</span><input type="text" placeholder="Giá sản phẩm" name="giasanpham">
             <span>Chọn danh mục</span>
-            <select name="category">
-                <option value="1">Điện thoại</option>
-                <option value="2">Máy tính bảng</option>
-                <option value="3">Phụ kiện</option>
+            <select name="tendanhmuc">
+                <?php
+                $sql_danhmuc = mysqli_query($conn, "SELECT maDM,ten FROM tbl_danhmuc ORDER BY stt ASC");
+                while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){
+                    echo " <option value=".$row_danhmuc['maDM'].">".$row_danhmuc['ten']."</option> ";
+                }
+                ?>
             </select>
-            <span>Ảnh sản phẩm</span><input type="file" placeholder="Ảnh sản phẩm" accept="image/*"> 
-            <span>Mô tả sản phẩm</span><textarea placeholder="Mô tả sản phẩm"></textarea> 
+            <span>Ảnh sản phẩm</span>
+            <input type="file" placeholder="Ảnh sản phẩm" accept="image/*" name="anhsanpham"> 
+            <span>Mô tả sản phẩm</span>
+            <textarea placeholder="Mô tả sản phẩm" name="motasanpham"></textarea> 
             <button type="submit" name="add_product">Thêm sản phẩm</button> 
         </form>
     </div>
@@ -20,26 +28,48 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Tên sản phẩm</th>
                     <th>Ảnh sản phẩm</th>
                     <th>Giá sản phẩm</th>
                     <th>Danh mục</th>
+                    <th>Mô tả</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
+                <!-- nơi để hiển thị dữ liệu -->
+                 <?php
+                 while($row = mysqli_fetch_assoc($sql)){
+                 ?>
                 <tr>
-                    <td>1</td>
-                    <td>Iphone 15</td>
-                    <td>Ảnh sản phẩm</td>
-                    <td>10000000</td>
-                    <td>Điện thoại</td>
+                    <td> <?php echo $row['ten']?></td>
                     <td>
-                        <button class="edit-btn">Sửa</button>
-                        <button class="delete-btn">Xóa</button>
+                        <?php
+                        echo "<img src ='uploads/".$row['anh']."' width='200px'>";
+                        ?> 
                     </td>
+                    <td> <?php echo $row['gia'] ?> </td>
+                    <!-- hiển thị danh mục -->
+                    <td>
+                        <?php
+                        $idDanhmuc = $row['idDanhmuc'];
+                        $sql_dm = mysqli_query($conn, "SELECT * FROM tbl_danhmuc WHERE maDM = '$idDanhmuc'");
+                        while($row_dm = mysqli_fetch_assoc($sql_dm)){
+                            echo $row_dm['ten'];
+                        }
+                        ?>
+                    </td>
+                    <td> <?php echo $row['mota'] ?> </td>
+                    <!-- hiển thị danh mục -->
+                    <td><a href="modules/main/main_content/quanlysanpham/sua.php?id=<?php echo $row['maSP']?>">
+                        <button class="edit-btn">Sửa</button>
+                    </a>
+                    <a href="modules/main/main_content/quanlysanpham/xoa.php?id=<?php echo $row['maSP']?>">
+                        <button class="delete-btn">Xóa</button>
+                    </a>
+                    </tr>
                 </tr>
+                <?php }?>
             </tbody>
         </table>
     </div>

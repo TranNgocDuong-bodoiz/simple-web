@@ -8,7 +8,7 @@
     padding: 0;
     display: flex;
     justify-content: space-around;
-    background-color:red;
+    background-color:rgb(255, 0, 0);
     top: 0;
     left: 0;
 }
@@ -67,13 +67,14 @@ div.logo div.shop_content{
     border-bottom: 1px solid gray; 
     background-color: rgb(255, 255, 255);
 }
+.danh_muc_list li.danh_muc_item:hover{
+    background-color: rgb(246, 120, 120);
+    color: white;
+    transition: background-color 0.3s ease;
+}
 .danh_muc_list li.danh_muc_item a{
     text-decoration: none;
     color: black;
-}
-.danh_muc_list li.danh_muc_item a:hover{
-    text-decoration: none;
-    color: red;
 }
 .danh_muc_list li.gap_item{
     text-decoration: none;

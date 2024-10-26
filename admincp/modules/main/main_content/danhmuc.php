@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <?php
-                $sql = mysqli_query($conn, "SELECT * FROM tbl_danhmuc");
+                $sql = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
                 while($row = mysqli_fetch_assoc($sql)){
                 ?>
                 <tr>
