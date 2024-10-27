@@ -1,26 +1,41 @@
-<div class="main">
-        <?php
-        if(isset($_GET["quanly"])){
-            $_ql = $_GET['quanly'];
-        }
-        else{
-            $_ql = '';
-        }
-        if($_ql == 'dienthoai'){
-            require_once('phone_product.php');
-        }
-        else if($_ql == 'tablet'){
-            require_once('tablet_product.php');
-        }
-        else if($_ql == 'phukien'){
-            require_once('accessories.php');
-        }
-        else if($_ql == 'tintuc'){
-            require_once('news.php');
-        }
-        else{
-            require_once('index.php');
-        }
-        ?>
+<?php
+require_once ("banner.php");
+?>
 
-    </div> <!-- Đóng thẻ main -->
+<div class="outstandingTablet"><!-- mo the outstanding tablet-->
+<?php
+$sql_danhmuc = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
+while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){?>
+            <div class="outstandingTablet__head_content">
+            <span><?php echo $row_danhmuc['ten'];?></span>
+            </div>
+            <?php
+            $sql_sanpham = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '".$row_danhmuc['maDM']."'");
+            if(mysqli_num_rows($sql_sanpham) > 0){
+                ?>
+                <div class="outstandingTablet__tablet_container">
+                <?php
+                while($row_sanpham = mysqli_fetch_assoc($sql_sanpham)){?>
+                
+                    <div class="outstandingTablet__tablet_container__tablet"> <!-- mo the tablet -->
+                            <div class="outstandingTablet__tablet_container__tablet__tablet_content"><span>giá sốc </span></div>
+                            <a style="text-decoration: none;" href="#"><div class="outstandingTablet__tablet_container__tablet__tablet_image"><img src="admincp/uploads/<?php echo $row_sanpham['anh']?>" alt="" width="100%"></div></a>
+                            <a style="text-decoration: none;" href="#"><div class="outstandingTablet__tablet_container__tablet__tablet_name"><span><?php echo $row_sanpham['ten']?></span></div></a>
+                            <div class="outstandingTablet__tablet_container__tablet__tablet_price"><span><?php echo number_format($row_sanpham['gia'], 0, ',', '.'); ?> VND</span></div>
+                    </div><!-- dong the tablet -->
+
+                <?php
+                }
+                ?>
+                </div>
+            <?php
+            }
+            
+            else{
+                echo "<h2>Không có sản phẩm nào</h2>";
+            }
+            ?>
+<?php
+}
+?>
+</div><!--DONG THE TABLET CONTAINER-->

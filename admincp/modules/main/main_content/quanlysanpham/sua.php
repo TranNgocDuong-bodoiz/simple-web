@@ -24,8 +24,8 @@ $row = mysqli_fetch_assoc($sql);
             <?php
             $sql_danhmuc = mysqli_query($conn, "SELECT maDM,ten FROM tbl_danhmuc ORDER BY stt ASC");
             while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){
-                echo "<option value=".$row_danhmuc['maDM'].">".$row_danhmuc['ten']."</option>";
-            }
+                echo "<option value='".$row_danhmuc['maDM']."'".($row_danhmuc['maDM'] == $row['idDanhmuc'] ? " selected" : "").">".$row_danhmuc['ten']."</option>";
+                    }
             ?>
             </select>
     </div>

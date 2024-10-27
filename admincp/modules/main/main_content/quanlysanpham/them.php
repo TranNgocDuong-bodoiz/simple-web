@@ -9,9 +9,9 @@ if(isset($_POST['add_product'])){
     $idDanhmuc = $_POST['tendanhmuc'];
     $anhsanpham = "";
     $motasanpham = "";
-    ($_POST['tensanpham' != ""]) ? $tensanpham = $_POST['tensanpham'] : $tensanpham = "Chưa cập nhật";
-    ($_POST['giasanpham' != ""]) ? $giasanpham = $_POST['giasanpham'] : $giasanpham = "Chưa cập nhật";
-    ($_POST['motasanpham' != ""]) ? $motasanpham = $_POST['motasanpham'] : $motasanpham = "Chưa cập nhật";
+    ($_POST['tensanpham'] != "") ? $tensanpham = $_POST['tensanpham'] : $tensanpham = "Chưa cập nhật";
+    ($_POST['giasanpham'] != "") ? $giasanpham = $_POST['giasanpham'] : $giasanpham = "Chưa cập nhật";
+    ($_POST['motasanpham'] != "") ? $motasanpham = $_POST['motasanpham'] : $motasanpham = "Chưa cập nhật";
     ($_FILES['anhsanpham']['name'] != "") ? $anhsanpham = date("Ymdhis")."_".$_FILES['anhsanpham']['name'] : $anhsanpham = "Chưa cập nhật";
     $anhsanpham_tmp = $_FILES['anhsanpham']['tmp_name'];
     move_uploaded_file($anhsanpham_tmp, "../../../../uploads/".$anhsanpham);

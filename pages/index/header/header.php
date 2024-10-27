@@ -9,43 +9,35 @@
                 favourite online store
             </div>
         </div>
+        <!-- 2.danh_muc -->
         <div class="danh_muc_container">
             <div class="danh_muc">
                 <i class="fa-solid fa-bars"></i>
                 <span>Danh mục</span>
             </div>
+            <!-- 3.danh_muc_list -->
             <ul class="danh_muc_list">
+                <!-- 4.gap_item --> 
                 <li class="gap_item"><i class="fa-solid fa-angle-down"></i></li>
+                <!-- 5.danh_muc_item -->
                 <a style="text-decoration: none; color: black;" href="index.php">
                 <li class="danh_muc_item">
-                    <i class="fa-regular fa-tablet"></i>
                     <span>Trang chủ</span>
                 </li>
                 </a>
-                <a style="text-decoration: none; color: black;" href="index.php?quanly=dienthoai">
+                 <?php
+                 $sql_danhmuc = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
+                 while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){?>
+                <a style="text-decoration: none; color: black;" href="index.php?id=<?php echo $row_danhmuc['maDM']?>">
                 <li class="danh_muc_item">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <span>Điện thoại</span>
+                    <span> <?php echo $row_danhmuc['ten']?> </span>
                 </li>
                 </a>
-                <a style="text-decoration: none; color: black;" href="index.php?quanly=tablet">
-                <li class="danh_muc_item">
-                    <i class="fa-regular fa-newspaper"></i>
-                    <span>Tablet</span>
-                </li>
-                </a>
-                <a style="text-decoration: none; color: black;" href="index.php?quanly=phukien">
-                <li class="danh_muc_item">
-                    <i class="fa-solid fa-headphones"></i>
-                    <span>Phụ kiện</span>
-                </li>
-                </a>
-                <a style="text-decoration: none; color: black;" href="index.php?quanly=tintuc">
-                <li class="danh_muc_item">
-                    <i class="fa-regular fa-newspaper"></i>
-                    <span>Tin tức</span>
-                </li>
-                </a>
+                 <?php
+                 } 
+                 ?>
+                
+                
             </ul>
         </div>
         <div class="search_bar">

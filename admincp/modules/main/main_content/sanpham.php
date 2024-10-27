@@ -5,10 +5,10 @@ $sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham");
 <div class="management-container">
     <div class="add_action">
         <form action="modules/main/main_content/quanlysanpham/them.php" method="POST" enctype="multipart/form-data">
-            <span>Tên sản phẩm</span><input type="text" placeholder="Tên sản phẩm" name="tensanpham">
-            <span>Giá sản phẩm</span><input type="text" placeholder="Giá sản phẩm" name="giasanpham">
+            <span>Tên sản phẩm</span><input type="text" placeholder="Tên sản phẩm" name="tensanpham" required>
+            <span>Giá sản phẩm</span><input type="text" placeholder="Giá sản phẩm" name="giasanpham" required>
             <span>Chọn danh mục</span>
-            <select name="tendanhmuc">
+            <select name="tendanhmuc" required>
                 <?php
                 $sql_danhmuc = mysqli_query($conn, "SELECT maDM,ten FROM tbl_danhmuc ORDER BY stt ASC");
                 while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){
@@ -17,13 +17,13 @@ $sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham");
                 ?>
             </select>
             <span>Ảnh sản phẩm</span>
-            <input type="file" placeholder="Ảnh sản phẩm" accept="image/*" name="anhsanpham"> 
+            <input type="file" placeholder="Ảnh sản phẩm" accept="image/*" name="anhsanpham" required> 
             <span>Mô tả sản phẩm</span>
-            <textarea placeholder="Mô tả sản phẩm" name="motasanpham"></textarea> 
+            <textarea placeholder="Mô tả sản phẩm" name="motasanpham" required></textarea> 
             <button type="submit" name="add_product">Thêm sản phẩm</button> 
         </form>
     </div>
-    <h4>Danh sách Bài viết</h4>
+    <h4>Danh sách sản phẩm</h4>
     <div class="show-list">
         <table>
             <thead>
