@@ -4,6 +4,7 @@
     height: auto;
     min-height: 500px;
     margin: 0 auto;
+    padding-top: 60px;
 }
 .banner {
     display: flex;
