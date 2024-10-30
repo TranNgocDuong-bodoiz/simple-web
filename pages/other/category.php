@@ -1,28 +1,24 @@
-<div class="main">
 <?php
-if (isset($_GET["id"])) {
-    require_once("pages/other/category.php");
-} else {
-    require_once("banner.php");
-    require_once("pages/index/main/sale_product.php");
-    ?>
+if(isset($_GET["id"])){
+    $cate_id = $_GET["id"];
+    $sql_cate = mysqli_query($conn, "SELECT ten FROM tbl_danhmuc WHERE maDM = '$cate_id'");
+    $sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '$cate_id'");
+    $row_danhmuc = mysqli_fetch_assoc($sql_cate);
+}
+    
+?>
     <div class="product-wraper"><!-- mở thẻ outstanding tablet -->
-        <?php
-        $sql_danhmuc = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
-        while ($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)) { ?>
-            <div class="product-head-title">
+    <div class="product-head-title">
                 <span style="font-size: 30px; padding-left: 10px;"><?php echo $row_danhmuc['ten']; ?></span>
-            </div>
-            <?php
-            $sql_sanpham = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '" . $row_danhmuc['maDM'] . "'");
-            if (mysqli_num_rows($sql_sanpham) > 0) { ?>
+            </div>  
+            
                 <div class="product-container">
                     <?php
-                    while ($row_sanpham = mysqli_fetch_assoc($sql_sanpham)) { ?>
+                    while ($row_sanpham = mysqli_fetch_assoc($sql)) { ?>
                         <div class="show-product"><!-- mở thẻ tablet -->
                             <div class="images-box">
                                 <div class="product_content">
-                                    <span>giá sốc</span>
+                                    <span>giá sốc vcl</span>
                                 </div>
                                 <a style="text-decoration: none;" href="#">
                                     <div class="product_image">
@@ -44,13 +40,5 @@ if (isset($_GET["id"])) {
                     <?php } ?>
                 </div>
             <?php
-            } else {
-                echo "<h2 style='text-align: center; color: green;'>Không có sản phẩm nào</h2>";
-            }
-        }
         ?>
     </div><!-- đóng thẻ outstanding tablet -->
-<?php
-}
-?>
-</div>

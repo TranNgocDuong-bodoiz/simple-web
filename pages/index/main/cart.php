@@ -69,7 +69,6 @@ div.logo div.shop_content{
     top: 100%;
     min-width: 200px;
     z-index: 1000;
-    
 }
 .danh_muc_list li.danh_muc_item{
     text-decoration: none;

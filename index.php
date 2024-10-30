@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/main-index.css">
+    <link rel="stylesheet" href="css/other/detail.css">
     <?php
     require_once("admincp/config/connection.php");
     ?>
