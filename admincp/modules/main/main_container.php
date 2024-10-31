@@ -19,6 +19,8 @@ switch($act){
     case 'taikhoan':
         include 'main_content/taikhoan.php';
         break;
+    case 'logout':
+        include 'main_content/logout.php';
     default:
         include 'main_content/dasboard.php';
         break;
