@@ -12,7 +12,36 @@
     <link rel="stylesheet" href="css/main-index.css">
     <link rel="stylesheet" href="css/other/detail.css">
     <?php
+    session_start();
     require_once("admincp/config/connection.php");
+    if(isset($_SESSION['user']) && ($_SESSION['user']) != ''){
+        $user = $_SESSION['user'];
+    }
+    else{
+        $user = '';
+    }
+    if(isset($_SESSION['pass']) && ($_SESSION['pass']) != ''){
+        $pass = $_SESSION['pass'];
+    }
+    else{
+        $pass = '';
+    }
+    if(isset($_SESSION['name']) && ($_SESSION['name']) != ''){
+        $name = $_SESSION['name'];
+    }
+    else{
+        $name = 'Sign in';
+    }
+    ?>
+    <?php
+    if($user != "" && $pass != "" && $name != ""){
+        $IsLogin = true;
+        $logined = "./pages/other/account_infor.php";
+    }
+    else{
+        $logined = "./pages/other/login.php";
+        $IsLogin = false;
+    }
     ?>
 </head>
 <body>
@@ -20,6 +49,7 @@
     <?php
     require_once("./pages/index/header/header.php");
     require_once("./pages/index/main/main.php");
+    echo $name;
     require_once("./pages/index/footer/footer.php");
     ?>
 </div> <!-- Đóng thẻ container --> 

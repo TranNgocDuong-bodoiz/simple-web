@@ -1,0 +1,95 @@
+/* CSS cho trang đăng ký */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f3f3;
+}
+
+.container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.img-register img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.right-register {
+    padding: 40px;
+    width: 100%;
+}
+
+.reg-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-ct {
+    margin-bottom: 10px;
+}
+
+.reg-content span {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-reg-box {
+    width: 100%;
+    padding: 7px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-reg-box:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.btr-reg {
+    text-align: center;
+    margin-top: 20px;
+}
+.btr-reg a.goback{
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+    border-bottom: 0;
+    transition: border-bottom 0.5s ease-in, color 0.5s ease;
+}
+.btr-reg a.goback:hover{
+    border-bottom: 2px solid #333;
+    color: red;
+}
+.brt--click {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.brt--click:hover {
+    background-color: #0056b3;
+}

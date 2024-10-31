@@ -60,10 +60,14 @@
             </a>
         </div>
         <div class="tai_khoan">
-            <a href="#">
+            <a href="<?php echo $logined ?>">
                 <div class="tai_khoan_ct">
                     <i class="fa-regular fa-user"></i>
-                    <span>Tài khoản</span>
+                    <span>
+                        <?php
+                        echo $name;
+                        ?>
+                    </span>
             </div>
             
             </a>
