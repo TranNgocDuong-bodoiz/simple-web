@@ -9,5 +9,8 @@ if(isset($_SESSION['pass']) && $_SESSION['pass'] != ''){
 if(isset($_SESSION['name']) && $_SESSION['name']){
     unset($_SESSION['name']);
 }
+if(isset($_SESSION['log']) && $_SESSION['log']){
+    unset($_SESSION['log']);
+}
  header('location: ../index.php');
 ?>

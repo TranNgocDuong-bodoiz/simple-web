@@ -49,7 +49,6 @@
     <?php
     require_once("./pages/index/header/header.php");
     require_once("./pages/index/main/main.php");
-    echo $name;
     require_once("./pages/index/footer/footer.php");
     ?>
 </div> <!-- Đóng thẻ container --> 

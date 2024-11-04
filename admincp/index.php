@@ -10,23 +10,27 @@
     <link rel="stylesheet" href="css/container.css">
 </head>
 <body>
-    <?php
+    
+<?php 
+    session_start();
     include 'config/connection.php';
-    ?>
-    <div class="admin-title">   
-        <h3>Welcome to admincp</h3>
-    </div>
-    <div class="wraper">
-        <div class="menu">
-            <?php
-            include 'modules/menu/menu.php';
-            ?>
+    
+    if(!isset($_SESSION['log']) || $_SESSION['log'] != 1){
+        header('location: login.php');
+        exit();
+    } else { ?>
+        <div class="admin-title">   
+            <h3>Welcome to admincp</h3>
         </div>
-        <div class="main">
-            <?php
-            include 'modules/main/main_container.php';
-            ?>
+        <div class="wraper">
+            <div class="menu">
+                <?php include 'modules/menu/menu.php'; ?>
+            </div>
+            <div class="main">
+                <?php include 'modules/main/main_container.php'; ?>
+            </div>
         </div>
-    </div>
+    <?php } ?>
+    
 </body>
 </html>

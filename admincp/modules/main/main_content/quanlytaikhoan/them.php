@@ -33,6 +33,11 @@ if(isset($_POST['add_account'])){
                     (`username`, `password`, `tenKH`, `email`, `ngaysinh`,`sodienthoai`, `gioitinh`, `diachi`, `created_at`, `role`) 
                     VALUES ('$username','$pass','$name','$email','$birth', '$tel' ,'$gender','$address', '$date', '$role')
                     ");
+            echo "
+            <script>
+                    alert('Thêm thành công');
+            </script>
+            ";
         }
         } 
         else{

@@ -23,6 +23,7 @@ require_once("../../admincp/config/connection.php");
         $birth = $_POST['birthday'];
         $address = $_POST['address'];
         $date = date('Y-m-d');
+        $role = "user";
 
         $sql = mysqli_query($conn,"SELECT * FROM tbl_taikhoankh WHERE username = '$username' ");
         if(mysqli_num_rows($sql) > 0){
@@ -41,8 +42,8 @@ require_once("../../admincp/config/connection.php");
         if($message1 == "" && $message2 == ""){
         if($username!= '' && $pass != '' && $name != '' && $email != '' && $gender != '' && $tel != '' && $birth != '' && $address != ''){
                     $sql = mysqli_query($conn, "INSERT INTO `tbl_taikhoankh`
-                    (`username`, `password`, `tenKH`, `email`, `ngaysinh`,`sodienthoai`, `gioitinh`, `diachi`, `created_at`) 
-                    VALUES ('$username','$pass','$name','$email','$birth', '$tel' ,'$gender','$address', '$date')
+                    (`username`, `password`, `tenKH`, `email`, `ngaysinh`,`sodienthoai`, `gioitinh`, `diachi`, `created_at`, `role`) 
+                    VALUES ('$username','$pass','$name','$email','$birth', '$tel' ,'$gender','$address', '$date', '$role')
                     ");
                     header("location: login.php");
                     exit(); 

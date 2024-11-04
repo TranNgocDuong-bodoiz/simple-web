@@ -48,12 +48,11 @@ session_start();
             $_SESSION['email'] =$row['email'];
             $_SESSION['role'] = $row['role'];
             if($_SESSION['role'] == 'admin'){
+                $_SESSION['log'] = 1;
                 header('location: ../../admincp/index.php');
-                exit();
             }else{
             $message = 'Đăng nhập thành công';
             header('location: ../../index.php');
-            exit();
             }
             
         }
