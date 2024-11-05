@@ -14,8 +14,8 @@ else{?>
                 <div class="welcome-title">
                 <span>Xin chào bạn: <?php echo $customer;  ?></span>
                 </div>
-                 <div class="user-name">Name</div>
-                 <div class="user-telephone">phone</div>
+                 <div class="user-telephone">phone: <?php echo $phone;?></div>
+                 <div class="created_at">Tham gia ngày: <?php echo $join ?></div>
             </div>
              
         </div>
