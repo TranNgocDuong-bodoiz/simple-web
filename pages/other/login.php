@@ -42,8 +42,15 @@ session_start();
                 $name .= $customerName[$i];
             }
             //
+            $_SESSION['id'] = $row['id_KH'];
             $_SESSION['user'] = $row['username'];
             $_SESSION['pass'] = $row['password'];
+            $_SESSION['customer'] = $row['tenKH'];
+            $_SESSION['gender'] = $row['gioitinh'];
+            $_SESSION['address'] = $row['diachi'];
+            $_SESSION['phone'] = $row['sodienthoai'];
+            $_SESSION['birthday'] = $row['ngaysinh'];
+            $_SESSION['join'] = $row['created_at'];
             $_SESSION['name'] = $name;
             $_SESSION['email'] =$row['email'];
             $_SESSION['role'] = $row['role'];

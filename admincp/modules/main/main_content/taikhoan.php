@@ -14,9 +14,9 @@
             <input type="text" name="sodienthoai" placeholder="Số điện thoại" required>
             <span>Giới tính</span>
             <div style="display: flex; max-width: 200px;">
-            <input type="radio" id="nam" name="gender" value="nam" required >
+            <input type="radio" id="nam" name="gender" value="Nam" required >
             <label for="nam">Nam</label><br>
-            <input type="radio" id="nu" name="gender" value="nu" required>
+            <input type="radio" id="nu" name="gender" value="Nữ" required>
             <label for="nu">Nữ</label><br>
             </div>
             <span>Email</span><span style="color: red"><?php echo $message2 ?></span>

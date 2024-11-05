@@ -36,7 +36,7 @@
     <?php
     if($user != "" && $pass != "" && $name != ""){
         $IsLogin = true;
-        $logined = "./pages/other/account_infor.php";
+        $logined = "./pages/other/member_account/account_infor.php";
     }
     else{
         $logined = "./pages/other/login.php";
@@ -49,6 +49,7 @@
     <?php
     require_once("./pages/index/header/header.php");
     require_once("./pages/index/main/main.php");
+    echo $_SESSION['id'];
     require_once("./pages/index/footer/footer.php");
     ?>
 </div> <!-- Đóng thẻ container --> 

@@ -79,9 +79,9 @@ require_once("../../admincp/config/connection.php");
     </div>
     <div class="input-ct">
         <div class="reg-content"><span>Giới tính</span></div>
-        <input type="radio" id="nam" name="gender" value="nam" required>
+        <input type="radio" id="nam" name="gender" value="Nam" required>
         <label for="nam">Nam</label><br>
-        <input type="radio" id="nu" name="gender" value="nu" required>
+        <input type="radio" id="nu" name="gender" value="Nữ" required>
         <label for="nu">Nữ</label><br>
     </div>
     <div class="input-ct">
