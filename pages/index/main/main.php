@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
                 <span style="font-size: 30px; padding-left: 10px;"><?php echo $row_danhmuc['ten']; ?></span>
             </div>
             <?php
-            $sql_sanpham = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '" . $row_danhmuc['maDM'] . "'");
+            $sql_sanpham = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '" . $row_danhmuc['maDM'] . "' ");
             if (mysqli_num_rows($sql_sanpham) > 0) { ?>
                 <div class="product-container">
                     <?php

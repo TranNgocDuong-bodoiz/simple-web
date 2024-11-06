@@ -41,7 +41,6 @@ session_start();
             for($i = 0; $i < count($customerName); $i++){
                 $name .= $customerName[$i];
             }
-            //
             $_SESSION['id'] = $row['id_KH'];
             $_SESSION['user'] = $row['username'];
             $_SESSION['pass'] = $row['password'];

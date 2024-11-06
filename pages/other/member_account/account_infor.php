@@ -28,7 +28,6 @@
         require_once("content_box.php");
         ?>
     </div>
-
     <script>
     function confirmLogout() {
         var confirmation = confirm("Bạn có muốn đăng xuất tài khoản không?");

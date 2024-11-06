@@ -1,6 +1,10 @@
 
 <div class="member-bar">
 <?php
+if(isset($_GET['page'])){
+    require_once('./changepassword.php');
+}
+else{
 if(isset($_POST["edit-info"]) && $_POST["edit-info"] != ""){
     ?>
 
@@ -37,11 +41,13 @@ else{?>
     <input type="text" name="birthday" disabled="disabled" value="Ngày sinh: <?php echo $birthday; ?>">
     <input type="text" nam="join" disabled="disabled" value="Ngày tạo tài khoản: <?php echo $join; ?>">
     <input type="text" name="address" disabled="disabled" value="Địa chỉ: <?php echo $address; ?>"> 
+    <a class="changePass" href="account_infor.php?act=account&page=changepassword"><span>Đổi mật khẩu</span> </a>
     <form name="form-info" action="" method="POST"> 
     <input type="submit" name="edit-info" value="Sửa thông tin">
     </form>
     </div>
 <?php
+}
 }
 ?>
 
