@@ -7,6 +7,6 @@
 </ul>
 <div class="footer-wrap">
     <div class="component">
-        <a href="index.php?act=logout">Thoát tài khoản</a>
+        <a href="index.php?act=logout" onclick="return confirmLogout()">Thoát tài khoản</a>
     </div>
 </div>

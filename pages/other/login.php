@@ -83,9 +83,10 @@ session_start();
             </div>
             <form action="#" method="POST">
                 <label for="taikhoan">Tài khoản</label>
-                <input type="text" id="taikhoan" name="taikhoan" placeholder="Nhập tài khoản">
+                <input type="text" id="taikhoan" name="taikhoan" value="<?php echo isset($_POST['taikhoan']) ? $_POST['taikhoan'] : ''; ?>"
+                placeholder="Nhập tài khoản">
                 <label for="matkhau">Mật khẩu</label>
-                <input type="password" id="matkhau" name="matkhau" placeholder="Nhập mật khẩu">
+                <input type="password" id="matkhau" name="matkhau" placeholder="Nhập mật khẩu" value="<?php echo isset($_POST['matkhau']) ? $_POST['matkhau'] : ''; ?>">
                 <div class="button-simple">
                     <button type="submit" class="login-btn" name="login-btn">Đăng nhập</button>
                     <a href="../../index.php" class="goback">Back</a>

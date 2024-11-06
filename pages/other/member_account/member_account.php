@@ -17,8 +17,7 @@ if(isset($_POST["edit-info"]) && $_POST["edit-info"] != ""){
     <input type="text" name="phone" value="<?php echo $phone; ?>">
     <input type="date" name="birthday" value="<?php echo $birthday; ?>">
     <input type="text" name="address"  value="<?php echo $address; ?>"> 
-     
-    <input type="submit" name="update-info" value="Sửa thông tin">
+    <input type="submit" name="update-info" value="Xác nhận">
     </form>
     </div>
 
@@ -33,7 +32,6 @@ else{?>
     <select name="gender" id="gender" disabled="disabled">
     <option value="Nam" <?php echo ($gender == "Nam") ? "selected" : ""; ?>>Nam</option>
     <option value="Nữ" <?php echo ($gender == "Nữ") ? "selected" : ""; ?>>Nữ</option>
-
     </select>
     <input type="text" name="phone" disabled="disabled" value="Số điện thoại: <?php echo $phone; ?>">
     <input type="text" name="birthday" disabled="disabled" value="Ngày sinh: <?php echo $birthday; ?>">

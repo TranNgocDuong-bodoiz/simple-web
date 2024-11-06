@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main/dashboard.css">
     <link rel="stylesheet" href="css/main/show-main.css">
     <link rel="stylesheet" href="css/container.css">
+    <link rel="icon" href="../imgaes/favicon.ico" type="image/x-icon">
 </head>
 <body>
     
@@ -31,6 +32,15 @@
             </div>
         </div>
     <?php } ?>
-    
+    <script>
+    function confirmLogout() {
+        var confirmation = confirm('Bạn có muốn thoát tài khoản không?');
+        if (confirmation) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

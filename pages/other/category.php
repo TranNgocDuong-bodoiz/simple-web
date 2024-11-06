@@ -5,7 +5,6 @@ if(isset($_GET["id"])){
     $sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '$cate_id'");
     $row_danhmuc = mysqli_fetch_assoc($sql_cate);
 }
-    
 ?>
     <div class="product-wraper"><!-- mở thẻ outstanding tablet -->
     <div class="product-head-title">

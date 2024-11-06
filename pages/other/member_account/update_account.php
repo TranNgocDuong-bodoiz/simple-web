@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['gender']) && isset($_POST['phone']) && isset($_POST['address']) && isset($_POST['birthday'])) {
     $name = $_POST['username'];
     $email = $_POST['email'];
-    $gender = $_POST['gender'] ;
+    $gender = $_POST['gender'];
     $phone = $_POST['phone'] ;
     $address = $_POST['address'] ;
     $birthday = $_POST['birthday'];

@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px #888888; /* Đổ bóng nhẹ */
+    box-shadow: 5px 5px 10px #888888;
 }
 .member-menu{
     min-height: 500px;

@@ -22,7 +22,7 @@
             </div>
             </a>
             
-            <a href="../logout.php">
+            <a href="../logout.php" onclick="return confirmLogout()">
             <div class="menu-item">
                 <span>Đăng xuất</span>
             </div>
