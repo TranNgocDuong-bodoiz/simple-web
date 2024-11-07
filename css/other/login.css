@@ -118,3 +118,15 @@ input[type="text"]:focus, input[type="password"]:focus {
 .register-btn:hover {
     background-color: #e0e0e0;
 }
+.messages-tag{
+    padding: 8px;
+    background-color: rgb(255, 211, 211);
+    color: #333;
+    border: 1px solid red;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.hidden{
+    display: none;
+}

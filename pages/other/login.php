@@ -78,7 +78,9 @@ session_start();
         <div class="login-simple">
             <h2>Đăng Nhập</h2>
             <div class="message">
-            <?php echo $message;?>
+            <?php if(!empty($message)): ?>
+                <div class="messages-tag" id="messages-tag"><?php echo $message ?></div>
+            <?php endif; ?>
             </div>
             <form action="#" method="POST">
                 <label for="taikhoan">Tài khoản</label>
@@ -95,8 +97,17 @@ session_start();
                 Đăng ký
                 </a>
             </form>
-            
+
         </div>
     </div>
+    <script>
+        const mess = document.getElementById('messages-tag');
+        if(mess){
+          setTimeout(function(){
+            mess.classList.add('hidden');
+          }, 1000);
+        }
+    </script>
+    </body>
     
     
