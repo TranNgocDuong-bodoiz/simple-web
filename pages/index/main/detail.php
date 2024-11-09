@@ -79,7 +79,14 @@ h2 {
 .buy-now:hover {
     background-color: #b71c1c;
 }
-
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 #gallery ul {
     display: flex;
     list-style-type: none;
@@ -161,6 +168,7 @@ if (isset($_GET['id'])) {
         <lavel class="add-to-cart">
             <a href="#" class="buy-now">Mua sản phẩm</a>
         <a href="#" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
+        <input type="number" class="quantity-input" min="1" value="1">
         <div id="gallery">
             <ul>
                 <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
