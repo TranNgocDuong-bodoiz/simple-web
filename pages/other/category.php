@@ -21,14 +21,14 @@ if(isset($_GET["id"])){
                                 </div>
                                 <a style="text-decoration: none;" href="#">
                                     <div class="product_image">
-                                        <img src="admincp/uploads/<?php echo $row_sanpham['anh']; ?>" alt="" width="100%">
+                                    <a href="pages/index/main/detail.php?id=<?= $row_sanpham['maSP']; ?>"><img src="admincp/uploads/<?php echo $row_sanpham['anh']; ?>" alt="" width="100%">
                                     </div>
                                 </a>
                             </div>
                             <div class="infor-box">
                                 <a style="text-decoration: none;" href="#">
                                     <div class="product_name">
-                                        <span><?php echo $row_sanpham['ten']; ?></span>
+                                        <span><a href="pages/index/main/detail.php?id=<?= $row_sanpham['maSP']; ?>"><?= $row_sanpham['ten']; ?></a></span>
                                     </div>
                                 </a>
                                 <div class="product_price">
