@@ -67,6 +67,18 @@ h2 {
 .add-to-cart a:hover {
     background-color: #b71c1c;
 }
+.add-to-cart-button {
+    padding: 8px 16px; 
+    background-color: #555;
+    font-size: 16px; 
+}
+.buy-now {
+    background-color: #d32f2f;
+}
+
+.buy-now:hover {
+    background-color: #b71c1c;
+}
 
 #gallery ul {
     display: flex;
@@ -146,7 +158,9 @@ if (isset($_GET['id'])) {
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
             <p><strong>Mô tả:</strong> <?= nl2br(htmlspecialchars($product['mota'])) ?></p>
 
-        <lavel class="add-to-cart"><a href="#">Mua sản phẩm</a></lavel>
+        <lavel class="add-to-cart">
+            <a href="#" class="buy-now">Mua sản phẩm</a>
+        <a href="#" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
         <div id="gallery">
             <ul>
                 <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
