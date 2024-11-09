@@ -9,50 +9,44 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="page_header">
+<!-- header div -->
+<div class="page_header">
+        <!-- 1.logo / 2.danh_muc/ 3.search_bar / 4.hotline/ 5.tra_cuu_don_hang/ 6.gio_hang/ 7.tai_khoan -->
         <div class="logo">
             <div class="shop_name">
                 <span>SIMPLE MOBILE</span>
             </div>
             <div class="shop_content">
-                Favourite online store
+                favourite online store
             </div>
         </div>
-        <nav class="danh_muc_container">
+        <!-- 2.danh_muc -->
+        <div class="danh_muc_container">
             <div class="danh_muc">
                 <i class="fa-solid fa-bars"></i>
                 <span>Danh mục</span>
             </div>
+            <!-- 3.danh_muc_list -->
             <ul class="danh_muc_list">
+                <!-- 4.gap_item --> 
                 <li class="gap_item"><i class="fa-solid fa-angle-down"></i></li>
+                <!-- 5.danh_muc_item -->
+                <a style="text-decoration: none; color: black;" href="index.php">
                 <li class="danh_muc_item">
-                    <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php">Trang chủ</a>
+                    <span>Trang chủ</span>
                 </li>
-                <li class="danh_muc_item">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <a href="index.php?quanly=dienthoai">Điện thoại</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php?quanly=tablet">Tablet</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-solid fa-headphones"></i>
-                    <a href="index.php?quanly=phukien">Phụ kiện</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-regular fa-newspaper"></i>
-                    <a href="index.php?quanly=tintuc">Tin tức</a>
-                </li>
+                </a>
+                 
+                
+                
             </ul>
-        </nav>
+        </div>
         <div class="search_bar">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             <input type="text" placeholder="Hôm nay bạn cần tìm gì" autocomplete="off">
         </div>
         <div class="hotline">
-            <a href="tel:0888888889">
+            <a href="#">
                 <div class="hotline_icon"><i class="fa-solid fa-phone-volume"></i></div>
                 <div class="hotline_infor">
                     <span id="hotline_text">Gọi mua ngay</span>
@@ -63,18 +57,24 @@
         <div class="gio_hang">
             <a href="#">
                 <div class="gio_hang_icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                <div class="gio_hang_infor"><span id="gio_hang_text">Giỏ hàng</span></div>
+                <div class="gio_hang_infor"><span id="gio_hang_text">giỏ hàng</span></div>
             </a>
         </div>
         <div class="tai_khoan">
-            <a href="#">
+            <a href="<?php echo $logined ?>">
                 <div class="tai_khoan_ct">
                     <i class="fa-regular fa-user"></i>
-                    <span>Tài khoản</span>
-                </div>
+                    <span>
+                        <?php
+                        echo $name;
+                        ?>
+                    </span>
+            </div>
+            
             </a>
         </div>
-    </header>
+    </div> <!-- Đóng thẻ page_header -->
+ <!-- Đóng thẻ container --> 
 
     <!-- Cart Section -->
     <section class="cart">

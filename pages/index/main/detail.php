@@ -63,7 +63,19 @@ h2 {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
+.add-to-cart-to a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.add-to-cart-to a:hover {
+    background-color: #b71c1c;
+}
 .add-to-cart a:hover {
     background-color: #b71c1c;
 }
@@ -115,7 +127,7 @@ if (isset($_GET['id'])) {
 
     $productId = (int)$_GET['id'];  
 
-    $query = "SELECT * FROM `tbl_sanpham` WHERE `maSP` = $productId";
+    $query = "SELECT * FROM tbl_sanpham WHERE maSP = $productId";
 
     $result = mysqli_query($conn, $query);
 
@@ -130,39 +142,47 @@ if (isset($_GET['id'])) {
     echo "No product ID provided.";
 }
 ?>
+<form action="/cart/add" method="post">
 <div class="containerSP">
     <h2>Chi tiết sản phẩm</h2>
     <div id="product-detail">
         <div id="product-img">
-        <?php if (!empty($product['anh'])): ?>
-            <img src="admincp/uploads/<?= htmlspecialchars($product['anh']) ?>" alt="Ảnh sản phẩm" />
+            <?php if (!empty($product['anh'])): ?>
+                <img src="admincp/uploads/<?= htmlspecialchars($product['anh']) ?>" alt="Ảnh sản phẩm" />
             <?php else: ?>
-                <p>không có ảnh</p>
+                <p>Không có ảnh</p>
             <?php endif; ?>
         </div>
     </div>
+
     <div id="product-info">
-    <h3><?= htmlspecialchars($product['ten']) ?></h3>
+        <?php if (!empty($product)): ?>
+            <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
             <p><strong>Mô tả:</strong> <?= nl2br(htmlspecialchars($product['mota'])) ?></p>
 
-        <lavel class="add-to-cart"><a href="#">Mua sản phẩm</a></lavel>
-        <div id="gallery">
-            <ul>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-            </ul>
-        </div>
-        <div class="product-description container">
-    <h3>Mô tả sản phẩm</h3>
-    <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
+            <label class="add-to-cart"><a href="#">Mua sản phẩm</a></label>
+            <label class="add-to-cart-to"><a href="#">Thêm vào giỏ hàng</a></label>
+            
+            <div id="gallery">
+                <ul>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png" alt="Ảnh sản phẩm 1" /></li>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 2" /></li>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 3" /></li>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 4" /></li>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 5" /></li>
+                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 6" /></li>
+                </ul>
+            </div>
+
+            <div class="product-description container">
+                <h3>Mô tả sản phẩm</h3>
+                <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
+            </div>
+        <?php else: ?>
+            <p>Không có thông tin sản phẩm.</p>
+        <?php endif; ?>
     </div>
 </div>
-
-</div>
-
+</form>
 

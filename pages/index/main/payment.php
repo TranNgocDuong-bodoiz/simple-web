@@ -10,7 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="page_header">
+    <!-- header div -->
+<div class="page_header">
         <!-- 1.logo / 2.danh_muc/ 3.search_bar / 4.hotline/ 5.tra_cuu_don_hang/ 6.gio_hang/ 7.tai_khoan -->
         <div class="logo">
             <div class="shop_name">
@@ -20,34 +21,35 @@
                 favourite online store
             </div>
         </div>
+        <!-- 2.danh_muc -->
         <div class="danh_muc_container">
             <div class="danh_muc">
                 <i class="fa-solid fa-bars"></i>
                 <span>Danh mục</span>
             </div>
+            <!-- 3.danh_muc_list -->
             <ul class="danh_muc_list">
+                <!-- 4.gap_item --> 
                 <li class="gap_item"><i class="fa-solid fa-angle-down"></i></li>
+                <!-- 5.danh_muc_item -->
+                <a style="text-decoration: none; color: black;" href="index.php">
                 <li class="danh_muc_item">
-                    <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php">Trang chủ</a>
+                    <span>Trang chủ</span>
                 </li>
+                </a>
+                 <?php
+                 $sql_danhmuc = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
+                 while($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)){?>
+                <a style="text-decoration: none; color: black;" href="index.php?id=<?php echo $row_danhmuc['maDM']?>">
                 <li class="danh_muc_item">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <a href="index.php?quanly=dienthoai">Điện thoại</a>
+                    <span> <?php echo $row_danhmuc['ten']?> </span>
                 </li>
+                </a>
+                 <?php
+                 } 
+                 ?>
                 
-                <li class="danh_muc_item">
-                     <i class="fa-regular fa-tablet"></i>
-                    <a href="index.php?quanly=tablet">Tablet</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-solid fa-headphones"></i>
-                    <a href="index.php?quanly=phukien">Phụ kiện</a>
-                </li>
-                <li class="danh_muc_item">
-                    <i class="fa-regular fa-newspaper"></i>
-                    <a href="index.php?quanly=tintuc">Tin tức</a>
-                </li>
+                
             </ul>
         </div>
         <div class="search_bar">
@@ -70,10 +72,14 @@
             </a>
         </div>
         <div class="tai_khoan">
-            <a href="#">
+            <a href="<?php echo $logined ?>">
                 <div class="tai_khoan_ct">
                     <i class="fa-regular fa-user"></i>
-                    <span>Tài khoản</span>
+                    <span>
+                        <?php
+                        echo $name;
+                        ?>
+                    </span>
             </div>
             
             </a>
