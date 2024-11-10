@@ -53,31 +53,42 @@ h2 {
     margin: 10px 0;
 }
 
-.add-to-cart a {
-    display: inline-block;
+#add-to-cart-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#add-to-cart-form input[type="text"] {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#add-to-cart-form input[type="submit"] {
+    background-color: #ff0000; 
+    color: #ffffff; 
     padding: 10px 20px;
-    background-color: #d32f2f;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.add-to-cart a:hover {
-    background-color: #b71c1c;
-}
-.add-to-cart-button {
-    padding: 8px 16px; 
-    background-color: #555;
-    font-size: 16px; 
-}
-.buy-now {
-    background-color: #d32f2f;
-}
-
-.buy-now:hover {
-    background-color: #b71c1c;
+#add-to-cart-form input[type="submit"]:hover {
+    background-color: #cc0000; 
 }
 .quantity-input {
     width: 60px;
@@ -126,14 +137,18 @@ h2 {
     padding-bottom: 5px;
 }
 </style>
+<link rel="stylesheet" href="../../../asset/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href=" ../../../css/style-cart.css">
+    <link rel="stylesheet" href="../../../css/header.css">
+    <link rel="stylesheet" href="../../../css/footer.css">
+    <link rel="stylesheet" href="../../../css/main-index.css">
+    <link rel="icon" href="../../../imgaes/favicon.ico" type="image/png">
+    <link rel="stylesheet" href="../../../css/main-index.css">
 <?php
 include '../../../admincp/config/connection.php';
+include('../header/header.php');
 $cate_id = $_GET["id"];
-<<<<<<< HEAD
-$result = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE `maSP`=".$_GET['id']);
-=======
 $result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
->>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 $product = mysqli_fetch_assoc($result);
 ?>
 <div class="containerSP">
@@ -146,28 +161,29 @@ $product = mysqli_fetch_assoc($result);
     <div id="product-info">
     <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
-        <lavel class="add-to-cart">
-            <a href="pages\index\main\cart.php" class="buy-now">Mua sản phẩm</a>
-        <a href="pages\index\main\cart.php" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
-        <input type="number" class="quantity-input" min="1" value="1">
->>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
-        <div id="gallery">
-            <ul>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
-            </ul>
+            <form id="add-to-cart-form" action="cart.php?action=add" method="POST" onsubmit="return validateQuantity()">
+    <input type="text" id="quantity-input" value="1" name="quantity[<?= $product['maSP'] ?>]" size="2"/><br/>
+    <span id="error-message" style="color: red; display: none;">Số lượng phải lớn hơn 0</span><br/>
+    <input type="submit" value="Mua sản phẩm"/>
+</form>
+
+<script>
+    function validateQuantity() {
+        const quantityInput = document.getElementById("quantity-input").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (quantityInput < 1) {
+            errorMessage.style.display = "block";
+            return false; 
+        } else {
+            errorMessage.style.display = "none";
+            return true; 
+        }
+    }
+</script>
         </div>
         <div class="product-description container">
     <h3>Mô tả sản phẩm</h3>
     <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
     </div>
-<<<<<<< HEAD
-</div>
-
-=======
->>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 </div>
