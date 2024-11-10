@@ -89,21 +89,36 @@ li.danh_muc_item:hover{
     background-color: gray;
 }
 /* search bar  height 40px*/
-.page_header div.search_bar{
+.search_bar{
     display: flex;
+    flex-direction: row;
+    width: auto;
     height: 40px;
-    width: 300px;
+    justify-content: center;
 }
-.search_bar button{
-    width: 15%;
-    background-color:rgb(242, 48, 48);
+.search_bar input[type='text']{
+    margin-top: 10px;
+    color: orange;
+    border-radius: 10px;
+    outline: red;
+    border: none;
+    min-width: 200px;
+    max-height: 30px;
 }
-.search_bar input{
-    width: 85%;
+.search_bar input[type='submit']{
+    background-color: orange;
+    margin-left: 5px;
+    margin-top: 10px;
+    color:black;
+    border-radius: 10px;
+    outline: red;
+    border: none;
+    max-height: 30px;
 }
-/* hotline */
-/* Hotline */
-/* Hotline */
+.search_bar input[type='submit']:hover{
+   cursor: pointer;
+
+}
 .page_header div.hotline {
 
     width: 120px;

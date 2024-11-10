@@ -47,7 +47,7 @@ if(isset($_GET['action'])) {
             }
             header('Location: ../../../cart.php');
             break;
-        case "submit"
+        case "submit":
             if(isset($_POST['update_click'])){      // cap nhat sl sp
                 update_cart();
                 header('Location: ../../../cart.php');
