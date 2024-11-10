@@ -128,7 +128,6 @@ h2 {
 </style>
 <?php
 include '../../../admincp/config/connection.php';
-
 $cate_id = $_GET["id"];
 $result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
 $product = mysqli_fetch_assoc($result);

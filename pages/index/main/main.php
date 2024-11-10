@@ -7,13 +7,13 @@ if (isset($_GET["id"])) {
     require_once("pages/index/main/sale_product.php");
     ?>
     <div class="product-wraper"><!-- mở thẻ outstanding tablet -->
-        <?php
+        <?php // lấy từng danh mục ra từ csdl
         $sql_danhmuc = mysqli_query($conn, "SELECT * FROM tbl_danhmuc ORDER BY stt ASC");
         while ($row_danhmuc = mysqli_fetch_assoc($sql_danhmuc)) { ?>
             <div class="product-head-title">
                 <span style="font-size: 30px; padding-left: 10px;"><?php echo $row_danhmuc['ten']; ?></span>
             </div>
-            <?php
+            <?php // lấy từng sản phẩm có id danh mục tương ứng với từng danh mục
             $sql_sanpham = mysqli_query($conn, "SELECT * FROM tbl_sanpham WHERE idDanhmuc = '" . $row_danhmuc['maDM'] . "' ");
             if (mysqli_num_rows($sql_sanpham) > 0) { ?>
                 <div class="product-container">
@@ -24,14 +24,14 @@ if (isset($_GET["id"])) {
                                 <div class="product_content">
                                     <span>giá sốc</span>
                                 </div>
-                                <a style="text-decoration: none;" href="#">
+                                <a style="text-decoration: none;" href="pages/index/main/detail.php?id=<?php echo $row_sanpham['maSP'] ?>">
                                     <div class="product_image">
                                         <img src="admincp/uploads/<?php echo $row_sanpham['anh']; ?>" alt="" width="100%">
                                     </div>
                                 </a>
                             </div>
                             <div class="infor-box">
-                                <a style="text-decoration: none;" href="#">
+                                <a style="text-decoration: none;" href="pages/index/main/detail.php?id=<?php echo $row_sanpham['maSP'] ?>">
                                     <div class="product_name">
                                         <span><?php echo $row_sanpham['ten']; ?></span>
                                     </div>
