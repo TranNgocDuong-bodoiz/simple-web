@@ -53,33 +53,22 @@ h2 {
     margin: 10px 0;
 }
 
-.add-to-cart a {
-    display: inline-block;
-    padding: 10px 20px;
+
+.buy-now {
     background-color: #d32f2f;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-.add-to-cart-to a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #d32f2f;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-.add-to-cart-to a:hover {
-    background-color: #b71c1c;
-}
-.add-to-cart a:hover {
-    background-color: #b71c1c;
 }
 
+.buy-now:hover {
+    background-color: #b71c1c;
+}
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 #gallery ul {
     display: flex;
     list-style-type: none;
@@ -118,71 +107,78 @@ h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
+#add-to-cart-from {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#add-to-cart-from input[type="text"] {
+    width: 50px;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#add-to-cart-from input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-to-cart-from input[type="submit"]:hover {
+    background-color: #b71c1c;
+}
+
+
 
 </style>
 <?php
 include '../../../admincp/config/connection.php';
-
-if (isset($_GET['id'])) {
-
-    $productId = (int)$_GET['id'];  
-
-    $query = "SELECT * FROM tbl_sanpham WHERE maSP = $productId";
-
-    $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-  
-        $product = mysqli_fetch_assoc($result);
-    } else {
-
-        echo "Product not found.";
-    }
-} else {
-    echo "No product ID provided.";
-}
+$cate_id = $_GET["id"];
+$result = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE `maSP`=".$_GET['id']);
+$product = mysqli_fetch_assoc($result);
 ?>
-<form action="/cart/add" method="post">
 <div class="containerSP">
     <h2>Chi tiết sản phẩm</h2>
     <div id="product-detail">
         <div id="product-img">
-            <?php if (!empty($product['anh'])): ?>
-                <img src="admincp/uploads/<?= htmlspecialchars($product['anh']) ?>" alt="Ảnh sản phẩm" />
-            <?php else: ?>
-                <p>Không có ảnh</p>
-            <?php endif; ?>
+        <img src="admincp/uploads/<?=$product['anh']?>"/>
         </div>
     </div>
-
     <div id="product-info">
-        <?php if (!empty($product)): ?>
-            <h3><?= htmlspecialchars($product['ten']) ?></h3>
+    <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
             <p><strong>Mô tả:</strong> <?= nl2br(htmlspecialchars($product['mota'])) ?></p>
-
-            <label class="add-to-cart"><a href="#">Mua sản phẩm</a></label>
-            <label class="add-to-cart-to"><a href="#">Thêm vào giỏ hàng</a></label>
-            
-            <div id="gallery">
-                <ul>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png" alt="Ảnh sản phẩm 1" /></li>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 2" /></li>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 3" /></li>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 4" /></li>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 5" /></li>
-                    <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png" alt="Ảnh sản phẩm 6" /></li>
-                </ul>
-            </div>
-
-            <div class="product-description container">
-                <h3>Mô tả sản phẩm</h3>
-                <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
-            </div>
-        <?php else: ?>
-            <p>Không có thông tin sản phẩm.</p>
-        <?php endif; ?>
+            <form id="add-to-cart-from" action="cart.php?action=add" method="post">
+                <input type="text" value=1 name="quatity[<?= htmlspecialchars($product['ten']) ?>]" size=2> <br>
+                <input type="submit" value="Mua sản phẩm">
+            </form>
+        
+        <div id="gallery">
+            <ul>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
+                <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_-_2_1.png"/></li>
+            </ul>
+        </div>
+        <div class="product-description container">
+    <h3>Mô tả sản phẩm</h3>
+    <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
     </div>
 </div>
-</form>
 
+</div>
