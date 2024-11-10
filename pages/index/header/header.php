@@ -40,8 +40,8 @@
                 
             </ul>
         </div>
-        <div>
-          <form  class="search_bar" action="" method="POST">
+        <div >
+          <form  class="search_bar" action="" method="GET">
             <input type="text" name="tukhoa" placeholder="Hôm nay bạn cần tìm gì">
             <input type="submit" name="timkiem" value="Tìm kiếm">
             </form>
