@@ -21,39 +21,57 @@ if(!isset($_SESSION['cart'])) {
     $_SESSION["cart"] = array() ;
 }
 if(isset($_GET['action'])) {
+
+    function update_cart($add = false)  {
+            foreach ($_POST['quantity'] as $maSP => $quantity) {
+
+              if($quantity ==0 ) {
+                unset($_SESSION["cart"] [$maSP]);
+              } else{
+                if ($add) {
+                    $_SESSION["cart"][$maSP] += $quantity;
+                } else {
+                    $_SESSION["cart"][$maSP] = $quantity;
+                }
+              }
+        }    
+    }
     switch ($_GET['action']){
         case "add":
-            foreach ($_POST['quantity'] as $maSP => $quantity) {
-                $_SESSION ["cart"] [$maSP] = $quantity;
+            update_cart(true);
+            header('Location: ../../../cart.php');
+            break;
+        case "delete":
+            if(isset($_GET['maSP'])){
+                unset($_SESSION["cart"][$_GET['maSP']]);
             }
+            header('Location: ../../../cart.php');
+            break;
+        case "submit"
+            if(isset($_POST['update_click'])){      // cap nhat sl sp
+                update_cart();
+                header('Location: ../../../cart.php');
+                
+            } elseif($_POST['order_click']) {        // dat hang sp
+                echo "Đặt hàng" ;
+                exit;
+            }   
             break;
     }
 }
  if(!empty($_SESSION ["cart"])) {
     
-    $result = mysqli_query($conn, "SELECT * FROM `tbl_sanpham` WHERE `maSP` IN (".implode(",", array_keys($_SESSION["cart"])).")");
+    $products = mysqli_query($conn, "SELECT * FROM `tbl_sanpham` WHERE `maSP` IN (".implode(",", array_keys($_SESSION["cart"])).")");
  ;
  }
 ?>
 
     <section class="cart">
-    <form id="cart-from" action="cart.php?action=submit" method="post">
+    <form id="cart-form" action="cart.php?action=submit" method="POST">
         <div class="container">
-            <div class="cart-top-wrap">
-                <div class="cart-top">
-                    <div class="cart-top-cart cart-top-item">
-                        <i class="fas fa-cart-shopping"></i>
-                    </div>
-                    <div class="cart-top-adress cart-top-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="cart-top-payment cart-top-item">
-                        <i class="fas fa-money-check-alt"></i>
-                    </div>
-                </div>
-            </div>
+            
             <div class="cart-content row">
-                <div class="cart-content-left">
+                <div class="cart-content">
                     <table>
                         <tr>
                             <th>STT</th>
@@ -74,12 +92,30 @@ if(isset($_GET['action'])) {
                             <td><?=$row['gia']?></td>                                                   
                             <td class="product-quantity"><input type="text" value="<?=$_SESSION ["cart"][$row['maSP']] ?>" name="quantity[<?=$row['maSP']?>]"></td>
                             <td><?=$row['gia']?></td>
-                            <td>X</td>
+                            <td><a href="cart.php?action=delete&maSP=<?=$row['maSP']?>"></a>Xóa</td>
                         </tr>
                         <?php    
                          $num++;
                         } ?>
+                        <tr>
+                            <td>&nbsp</td>
+                            <td>Tổng tiền</td>                                                       
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>49.000.000 </td>
+                            <td>Xóa</td>
+                        </tr>
                     </table>
+                    <div id="form-button">
+                              <input type="submit" name="update_click" value="Cập nhật"> 
+                    </div> 
+                    <hr>
+                    <div><label>Người nhận: </label><input type="text" value="" name="name" ></div>
+                    <div><label>Điện thoại: </label><input type="text" value="" name="phone" ></div>
+                    <div><label>Địa chỉ: </label><input type="text" value="" name="address" ></div>
+                    <div><label>Ghi chú: </label><textarea name="note" cols="50" rows="7"></textarea> </div>
+                    <input type="submit" name="order_click" value="Đặt hàng">
                 </div>
                 
             </div>
