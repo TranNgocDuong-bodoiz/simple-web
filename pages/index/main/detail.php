@@ -129,7 +129,7 @@ h2 {
 <?php
 include '../../../admincp/config/connection.php';
 $cate_id = $_GET["id"];
-$result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
+$result = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE `maSP`=".$_GET['id']);
 $product = mysqli_fetch_assoc($result);
 ?>
 <div class="containerSP">
@@ -143,8 +143,8 @@ $product = mysqli_fetch_assoc($result);
     <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
         <lavel class="add-to-cart">
-            <a href="#" class="buy-now">Mua sản phẩm</a>
-        <a href="#" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
+            <a href="pages\index\main\cart.php" class="buy-now">Mua sản phẩm</a>
+        <a href="pages\index\main\cart.php" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
         <input type="number" class="quantity-input" min="1" value="1">
         <div id="gallery">
             <ul>
