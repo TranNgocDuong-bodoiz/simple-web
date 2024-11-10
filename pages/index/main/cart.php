@@ -20,18 +20,20 @@ include("../header/header.php");
 if(!isset($_SESSION['cart'])) {
     $_SESSION["cart"] = array() ;
 }
+$error = false;
+$success = false;
 if(isset($_GET['action'])) {
 
     function update_cart($add = false)  {
-            foreach ($_POST['quantity'] as $maSP => $quantity) {
+            foreach ($_POST['quantity'] as $id => $quantity) {
 
               if($quantity ==0 ) {
-                unset($_SESSION["cart"] [$maSP]);
+                unset($_SESSION["cart"] [$id]);
               } else{
                 if ($add) {
-                    $_SESSION["cart"][$maSP] += $quantity;
+                    $_SESSION["cart"][$id] += $quantity;
                 } else {
-                    $_SESSION["cart"][$maSP] = $quantity;
+                    $_SESSION["cart"][$id] = $quantity;
                 }
               }
         }    
@@ -42,70 +44,119 @@ if(isset($_GET['action'])) {
             header('Location: ../../../cart.php');
             break;
         case "delete":
-            if(isset($_GET['maSP'])){
-                unset($_SESSION["cart"][$_GET['maSP']]);
+            if(isset($_GET['id'])){
+                unset($_SESSION["cart"][$_GET['id']]);
             }
             header('Location: ../../../cart.php');
             break;
         case "submit"
-            if(isset($_POST['update_click'])){      // cap nhat sl sp
+            if(isset($_POST['update_click'])) {      // cap nhat sl sp
                 update_cart();
                 header('Location: ../../../cart.php');
                 
-            } elseif($_POST['order_click']) {        // dat hang sp
-                echo "Đặt hàng" ;
-                exit;
+            } elseif ($_POST['order_click']) {        // dat hang sp
+                if (empty($_POST['name'])) {
+                    $error = "Bạn chưa nhập tên của người nhận"
+                } elseif (empty($_POST['phone'])) {
+                    $error = "Bạn chưa nhập số điện thoai của người nhận"
+                } elseif (empty($_POST['address'])) {
+                    $error = "Bạn chưa nhập địa chỉ của người nhận"
+                } elseif (empty($_POST['quantity'])) {
+                    $error = "Giỏ hàng rỗng"
+                }
+                if($error == false && !empty($_POST['quantity'])) {  // xu li cart luu vo database
+                    $products = mysqli_query($conn, "SELECT * FROM `tbl_sanpham` WHERE `id` IN (".implode(",", array_keys($_POST['quantity'])).")");
+                    $total = 0;
+                    $orderProducts = array();
+                    while ($row = mysqli_fetch_array($products)) { 
+                            $orderProducts [] = $row;
+                           $total += $row['price'] * $_POST['quantity'][$row['id']];
+                    }
+                    // /echo date("d/m/Y H:i", 1588035137);exit;/ 
+                    $insertOrder = mysqli_query($conn, "INSERT INTO `order` (`id`, `name`, `phone`, `address`, `note`, `total`, `created_time`, `last_updated`) VALUES (NULL, '".$_POST['name']."', '".$_POST['phone']."', '".$_POST['address']."', '".$_POST['note']."', '.$total.', '".time()."', '".time()."');");
+                    $orderID = $conn->insert_id;
+                    $insertString = "";
+                     foreach ($orderProducts as $key=> $products) {
+
+                        $insertString .= "(NULL, '".$orderID."', '".$products['id']."', '"$_POST['quantity'][$products['id']]"', '".$products['price']."', '".time()."', '".time()."')";
+                        if($key != count($orderProducts) - 1){
+                            $insertString .= ",";
+                        }
+                    }
+
+
+                    
+                    $insertOrder = mysqli_query($conn, "INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `gia`, `created_time`, `last_updated`) VALUES ".$insertString.";");
+                    $success = "Đặt hàng thành công";
+                    $unset($_SESSION["cart"]);
             }   
             break;
     }
 }
  if(!empty($_SESSION ["cart"])) {
     
-    $products = mysqli_query($conn, "SELECT * FROM `tbl_sanpham` WHERE `maSP` IN (".implode(",", array_keys($_SESSION["cart"])).")");
+    $products = mysqli_query($conn, "SELECT * FROM `tbl_sanpham` WHERE `id` IN (".implode(",", array_keys($_SESSION["cart"])).")");
  ;
  }
 ?>
 
     <section class="cart">
-    <form id="cart-form" action="cart.php?action=submit" method="POST">
+    <?php if(!empty($error)) { ?>
+        <div id="notify-msg">
+             <?=$error?>. <a href="javascript:history.back()">Quay lại</a>
+        </div>
+    <?php } elseif(!empty($success)){   ?>
+       <div id="notify-msg">
+             <?=$success?>. <a href="index.php">Tiếp tục mua hàng</a>
+       </div>
+    <?php } else { ?>
+        <form id="cart-form" action="cart.php?action=submit" method="POST">
         <div class="container">
             
             <div class="cart-content row">
                 <div class="cart-content">
                     <table>
                         <tr>
-                            <th>STT</th>
-                            <th>Ảnh Sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Đơn giá</th>
-                            <th>Số lượng</th>
-                            <th>Thành tiền</th>
-                            <th>Xóa</th>
+                            <th class="product-number">STT</th>
+                            <th class="product-img">Ảnh Sản phẩm</th>
+                            <th class="product-name">Tên sản phẩm</th>
+                            <th class="product-price">Đơn giá</th>
+                            <th class="product-quantity">Số lượng</th>
+                            <th class="total-money">Thành tiền</th>
+                            <th class="product-delete">Xóa</th>
                         </tr>
                         <?php
-                          $num = 1;
-                          while ($row = mysqli_fetch_array($products)) {  ?>
-                        <tr>
-                            <td><?=$num++;?></td>
-                            <td><img src="../../../imgaes/dt_noiBat/iphone-16-pro-max.webp" alt="Iphone 16 Pro Max"></td>
-                            <td><p><?=$row['ten']?></p></td>
-                            <td><?=$row['gia']?></td>                                                   
-                            <td class="product-quantity"><input type="text" value="<?=$_SESSION ["cart"][$row['maSP']] ?>" name="quantity[<?=$row['maSP']?>]"></td>
-                            <td><?=$row['gia']?></td>
-                            <td><a href="cart.php?action=delete&maSP=<?=$row['maSP']?>"></a>Xóa</td>
-                        </tr>
-                        <?php    
-                         $num++;
-                        } ?>
-                        <tr>
-                            <td>&nbsp</td>
-                            <td>Tổng tiền</td>                                                       
-                            <td>&nbsp</td>
-                            <td>&nbsp</td>
-                            <td>&nbsp</td>
-                            <td>49.000.000 </td>
-                            <td>Xóa</td>
-                        </tr>
+                        if (!empty($products)) {
+                            $total = 0;
+                            $num = 1;
+                            while ($row = mysqli_fetch_array($products)) {  
+                              ?>
+                         <tr>
+                            <td class="product-number"><?=$num++;?></td>
+                            <td class="product-img"><img src=<?= $row['image'] ?>></td>
+                            <td class="product-name"><p><?=$row['name']?></p></td>
+                            <td class="product-price"><?= number_format($row['price'], 0, ",", ".") ?></td>                                                   
+                            <td class="product-quantity"><input type="text" value="<?=$_SESSION ["cart"][$row['id']] ?>" name="quantity[<?=$row['id']?>]"></td>
+                            <td class="total-money"><?= number_format($row['price'] * $_SESSION ["cart"][$row['id']], 0, ",", ".") ?></td>
+                            <td class="product-delete"><a href="cart.php?action=delete&id=<?=$row['id']?>"></a>Xóa</td>
+                         </tr>
+                        <?php 
+                        $total +=  $row['price'] * $_SESSION ["cart"][$row['id']] ;  
+                        $num++;
+                    }
+                    ?>
+                          <tr>
+                            <td class="product-number">&nbsp</td>
+                            <td class="product-name">Tổng tiền</td>                                                       
+                            <td class="product-img">&nbsp</td>
+                            <td class="product-price">&nbsp</td>
+                            <td class="product-quantity">&nbsp</td>
+                            <td class="total-money"><?= number_format($total, 0, ",", ".") ?></td>
+                            <td class="product-delete">Xóa</td>
+                         </tr>
+                    <?php
+                } 
+                ?>
                     </table>
                     <div id="form-button">
                               <input type="submit" name="update_click" value="Cập nhật"> 
@@ -121,6 +172,8 @@ if(isset($_GET['action'])) {
             </div>
         </div>
         </form>
+    <?php } ?>
+    
     </section>
     
    <!-- footer --> 
