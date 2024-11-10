@@ -2,6 +2,9 @@
 <?php
 if (isset($_GET["id"])) {
     require_once("pages/other/category.php");
+}
+elseif(isset($_POST['timkiem'])){
+    require_once('./pages/index/main/xulytimkiem.php');
 } else {
     require_once("banner.php");
     require_once("pages/index/main/sale_product.php");
