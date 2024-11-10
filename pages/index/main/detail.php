@@ -129,7 +129,11 @@ h2 {
 <?php
 include '../../../admincp/config/connection.php';
 $cate_id = $_GET["id"];
+<<<<<<< HEAD
 $result = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE `maSP`=".$_GET['id']);
+=======
+$result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 $product = mysqli_fetch_assoc($result);
 ?>
 <div class="containerSP">
@@ -146,6 +150,7 @@ $product = mysqli_fetch_assoc($result);
             <a href="pages\index\main\cart.php" class="buy-now">Mua sản phẩm</a>
         <a href="pages\index\main\cart.php" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
         <input type="number" class="quantity-input" min="1" value="1">
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
         <div id="gallery">
             <ul>
                 <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
@@ -160,4 +165,9 @@ $product = mysqli_fetch_assoc($result);
     <h3>Mô tả sản phẩm</h3>
     <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
     </div>
+<<<<<<< HEAD
+</div>
+
+=======
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 </div>
