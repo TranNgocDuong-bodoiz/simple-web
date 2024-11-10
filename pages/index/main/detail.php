@@ -125,46 +125,26 @@ h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
-
 </style>
 <?php
 include '../../../admincp/config/connection.php';
-
-if (isset($_GET['id'])) {
-
-    $productId = (int)$_GET['id'];  
-
-    $query = "SELECT * FROM `tbl_sanpham` WHERE `maSP` = $productId";
-
-    $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-  
-        $product = mysqli_fetch_assoc($result);
-    } else {
-
-        echo "Product not found.";
-    }
-} else {
-    echo "No product ID provided.";
-}
+require_once("../header/header.php");
+require_once("../main/main.php");
+require_once("../footer/footer.php");
+$cate_id = $_GET["id"];
+$result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
+$product = mysqli_fetch_assoc($result);
 ?>
 <div class="containerSP">
     <h2>Chi tiết sản phẩm</h2>
     <div id="product-detail">
         <div id="product-img">
-        <?php if (!empty($product['anh'])): ?>
-            <img src="admincp/uploads/<?= htmlspecialchars($product['anh']) ?>" alt="Ảnh sản phẩm" />
-            <?php else: ?>
-                <p>không có ảnh</p>
-            <?php endif; ?>
+        <img src="../../../admincp/uploads/<?=$product['anh']?>"/>
         </div>
     </div>
     <div id="product-info">
     <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
-            <p><strong>Mô tả:</strong> <?= nl2br(htmlspecialchars($product['mota'])) ?></p>
-
         <lavel class="add-to-cart">
             <a href="#" class="buy-now">Mua sản phẩm</a>
         <a href="#" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
@@ -184,7 +164,3 @@ if (isset($_GET['id'])) {
     <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
     </div>
 </div>
-
-</div>
-
-
