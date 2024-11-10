@@ -107,6 +107,7 @@ h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
+<<<<<<< HEAD
 #add-to-cart-from {
     display: flex;
     flex-direction: column;
@@ -142,29 +143,46 @@ h2 {
 
 
 
+=======
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 </style>
 <?php
 include '../../../admincp/config/connection.php';
 $cate_id = $_GET["id"];
+<<<<<<< HEAD
 $result = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE `maSP`=".$_GET['id']);
+=======
+$result = mysqli_query($conn,"SELECT * FROM `tbl_sanpham` WHERE `maSP`=".$_GET['id']);
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 $product = mysqli_fetch_assoc($result);
 ?>
 <div class="containerSP">
     <h2>Chi tiết sản phẩm</h2>
     <div id="product-detail">
         <div id="product-img">
+<<<<<<< HEAD
         <img src="admincp/uploads/<?=$product['anh']?>"/>
+=======
+        <img src="../../../admincp/uploads/<?=$product['anh']?>"/>
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
         </div>
     </div>
     <div id="product-info">
     <h3><?= htmlspecialchars($product['ten']) ?></h3>
             <p><strong>Giá:</strong> <?= number_format($product['gia'], 0, ',', '.') ?> VND</p>
+<<<<<<< HEAD
             <p><strong>Mô tả:</strong> <?= nl2br(htmlspecialchars($product['mota'])) ?></p>
             <form id="add-to-cart-from" action="cart.php?action=add" method="post">
                 <input type="text" value=1 name="quatity[<?= htmlspecialchars($product['ten']) ?>]" size=2> <br>
                 <input type="submit" value="Mua sản phẩm">
             </form>
         
+=======
+        <lavel class="add-to-cart">
+            <a href="#" class="buy-now">Mua sản phẩm</a>
+        <a href="#" class="add-to-cart-button">Thêm vào giỏ hàng</a></lavel>
+        <input type="number" class="quantity-input" min="1" value="1">
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
         <div id="gallery">
             <ul>
                 <li><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung_s23_ultra_512gb-_10.png"/></li>
@@ -179,6 +197,9 @@ $product = mysqli_fetch_assoc($result);
     <h3>Mô tả sản phẩm</h3>
     <p><?= nl2br(htmlspecialchars($product['mota'])) ?></p>
     </div>
+<<<<<<< HEAD
 </div>
 
+=======
+>>>>>>> 92dc1a7d67158dea3a992b122007dd1178e4ecaa
 </div>

@@ -40,9 +40,11 @@
                 
             </ul>
         </div>
-        <div class="search_bar">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" placeholder="Hôm nay bạn cần tìm gì" autocomplete="off">
+        <div>
+          <form  class="search_bar" action="" method="POST">
+            <input type="text" name="tukhoa" placeholder="Hôm nay bạn cần tìm gì">
+            <input type="submit" name="timkiem" value="Tìm kiếm">
+            </form>
         </div>
         <div class="hotline">
             <a href="#">
