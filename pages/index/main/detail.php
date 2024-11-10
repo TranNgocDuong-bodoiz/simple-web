@@ -138,7 +138,6 @@ h2 {
 }
 </style>
 <link rel="stylesheet" href="../../../asset/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href=" ../../../css/style-cart.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
     <link rel="stylesheet" href="../../../css/main-index.css">
