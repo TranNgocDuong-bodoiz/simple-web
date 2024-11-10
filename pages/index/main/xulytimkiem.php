@@ -10,7 +10,6 @@ if($total> 0){
                 <span style="font-size: 30px; padding-left: 10px;">Đã tìm kiếm được <?php echo $total  ?> sản phẩm bằng từ khóa </span>
                 <span style="font-size: 30px; color:green"><?php echo $tukhoa; ?></span>
             </div>
-           
                 <div class="product-container">
                   <?php while($rowsp = mysqli_fetch_assoc($sql)){ ?>
                         <div class="show-product"><!-- mở thẻ tablet -->
@@ -42,11 +41,11 @@ if($total> 0){
     else{
         ?>
         <div class="product-wraper">
-        <div class="product-head-title">
+        <div class="product-head-title" style="border-bottom: 1px solid #333">
                 <span style="font-size: 30px; padding-left: 10px;">Hiện tại chưa có sản phẩm nào với từ khóa </span>
                 <span style="font-size: 30px; color:green"><?php echo $tukhoa; ?></span>
             </div>
-        <div class="not-search-found" style="border-bottom: 1px solid #333">
+        <div class="not-search-found" >
             <img src="imgaes/notfound-removebg-preview.png" alt="not found omg">
         </div>
         </div>
