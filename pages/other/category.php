@@ -17,7 +17,7 @@ if(isset($_GET["id"])){
                         <div class="show-product"><!-- mở thẻ tablet -->
                             <div class="images-box">
                                 <div class="product_content">
-                                    <span>giá sốc vcl</span>
+                                    <span>giá sốc</span>
                                 </div>
                                 <a style="text-decoration: none;" href="#">
                                     <div class="product_image">
