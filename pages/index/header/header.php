@@ -56,7 +56,7 @@
             </a>
         </div>
         <div class="gio_hang">
-            <a href="#">
+            <a href="pages\index\main\cart.php">
                 <div class="gio_hang_icon"><i class="fa-solid fa-cart-shopping"></i></div>
                 <div class="gio_hang_infor"><span id="gio_hang_text">giỏ hàng</span></div>
             </a>

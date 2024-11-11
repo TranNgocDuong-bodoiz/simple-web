@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_GET['act'])){
     $act = $_GET['act'];
@@ -18,6 +17,9 @@ switch($act){
         break;
     case 'taikhoan':
         include 'main_content/taikhoan.php';
+        break;
+    case 'tintuc':
+        include 'main_content/tintuc.php';
         break;
     case 'logout':
         include 'main_content/logout.php';

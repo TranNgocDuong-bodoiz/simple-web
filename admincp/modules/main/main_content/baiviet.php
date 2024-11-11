@@ -8,13 +8,7 @@
             <span>Nội dung bài viết</span><textarea name="content" placeholder="Nội dung bài viết" required></textarea>
             <span>Tác giả</span><input type="text" name="author" placeholder="Tác giả">
             <span>Ngày đăng</span><input type="date" name="publish_date" required>
-            <span>Danh mục</span>
-            <select name="category">
-                <option value="">Chọn danh mục</option>
-                <option value="1">Tin tức</option>
-                <option value="2">Sự kiện</option>
-                <option value="3">Khuyến mãi</option>
-            </select>
+        <span>anh</span><input type="file"name="anh">
             <button type="submit" name="add_news">Thêm bài viết</button>
         </form>
     </div>
@@ -24,11 +18,10 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Tiêu đề</th>
                     <th>Tác giả</th>
                     <th>Ngày đăng</th>
-                    <th>Danh mục</th>
+                    <th>Anh</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
@@ -54,7 +47,7 @@
                         <button class="edit-btn">Sửa</button>
                         <button class="delete-btn">Xóa</button>
                     </td>
-                </tr>
+                </tr>   
             </tbody>
         </table>
     </div>
