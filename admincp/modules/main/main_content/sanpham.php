@@ -45,7 +45,7 @@ $sql = mysqli_query($conn, "SELECT * FROM tbl_sanpham");
                     <td> <?php echo $row['ten']?></td>
                     <td>
                         <?php
-                        echo "<img src ='uploads/".$row['anh']."' width='200px'>";
+                        echo "<img src ='uploads/".$row['anh']."' width='80px'>";
                         ?> 
                     </td>
                     <td> <?php echo $row['gia'] ?> </td>
