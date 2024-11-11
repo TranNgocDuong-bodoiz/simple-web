@@ -49,6 +49,7 @@
 <div class="container">
     <?php
     require_once("./pages/index/header/header.php");
+    
     require_once("./pages/index/main/main.php");
     
     require_once("./pages/index/footer/footer.php");
